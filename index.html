@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora Maya PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="max-w-2xl mx-auto p-6 bg-white mt-10 rounded-2xl shadow-lg">
+    <h1 class="text-3xl font-bold text-center text-red-700 mb-6">Calculadora del Calendario Maya</h1>
+    <label class="block mb-2 font-semibold" for="fecha">Ingresa una fecha (YYYY-MM-DD):</label>
+    <input class="w-full border rounded p-2" type="date" id="fecha">
+    <button onclick="calcularFechaMaya()" class="mt-4 w-full bg-red-600 text-white p-2 rounded hover:bg-red-700 transition">Convertir</button>
+    <div class="mt-6 bg-gray-50 p-4 rounded shadow" id="resultado"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
